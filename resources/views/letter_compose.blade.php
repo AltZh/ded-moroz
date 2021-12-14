@@ -28,6 +28,12 @@
             <textarea name='body' class='w-full h-60 border-2 rounded-md border-blue-400 py-2 px-4' placeholder='Что же вы хотите сказать Дедушке Морозу?'>{{ old('body') }}</textarea>
         </div>
         <div>
+            <select name='is_private' class='py-2 px-4 border-2 border-blue-400 rounded-md'>
+                <option value='1' selected>Лично Дедушке</option>
+                <option value='0'>Публично, будет видно всем</option>
+            </select>
+        </div>
+        <div>
             <input class='bg-blue-400 text-white py-2 px-6 rounded-md shadow-md' type='submit' name='send_letter' value='Отправить письмо'/>
         </div>
     </form>

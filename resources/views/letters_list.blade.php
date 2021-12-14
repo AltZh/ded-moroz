@@ -22,20 +22,33 @@
                 @if( $letter->response == null)
                     <div class='flex items-center py-2'>
                         <a href="{{ route('letter.edit', [ 'id' => $letter->id ]) }}">{{ $letter->body }}</a>
+                        <img src="https://img.icons8.com/ios-glyphs/24/000000/edit.png" class='h-4 ml-4'/>
                     </div>
                 @else 
                     <div class='flex items-center py-2'>
                         <a href="{{ route('letter.view', [ 'id' => $letter->id ]) }}">{{ $letter->body }}</a>
-                        <img src="https://img.icons8.com/material-outlined/24/000000/response.png" class='h-4 ml-4'/>
+                        <img src="https://img.icons8.com/material-outlined/24/000000/response.png" class='h-4 ml-4' alt='Есть ответ'/>
                     </div>
                 @endif
             @else
                 @if( Auth::user()->role == 'admin')
-                    <div class='flex items-center py-2'>
-                        <a href="{{ route('letter.response', [ 'id' => $letter->id ]) }}">{{ $letter->body }}</a>
-                    </div>
+                    @if( $letter->response == null)
+                        <div class='flex items-center py-2'>
+                            <a href="{{ route('letter.response', [ 'id' => $letter->id ]) }}">{{ $letter->body }}</a>
+                        </div>
+                    @else
+                        <div class='flex items-center py-2'>
+                            <a href="{{ route('letter.response', [ 'id' => $letter->id ]) }}">{{ $letter->body }}</a>
+                            <img src="https://img.icons8.com/material-outlined/24/000000/response.png" class='h-4 ml-4' alt='Есть ответ'/>
+                        </div>
+                    @endif
                 @else
-                    <div class='py-2'>{{ $letter->body }}</div>
+                    @if( $letter->is_private == 0)
+                    <div class='flex items-center py-2'>
+                        <img src="https://img.icons8.com/material-outlined/24/000000/guest-male.png" class='h-4 mr-4' />
+                        <a href="{{ route('letter.view', [ 'id' => $letter->id ]) }}">{{ $letter->body }}</a>
+                    </div>
+                    @endif
                 @endif
             @endif
         @endforeach

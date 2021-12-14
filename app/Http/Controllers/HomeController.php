@@ -7,6 +7,9 @@ use App\Models\Letter;
 use App\Models\Gift;
 use Illuminate\Support\Facades\Auth;
 
+//temp
+use Illuminate\Support\Facades\DB;
+
 class HomeController extends Controller
 {
     public function index(){
@@ -39,6 +42,7 @@ class HomeController extends Controller
     public function letter_create(Request $request){
         $validatedData = $request->validate([
             'body' => 'required|max:950',
+            'is_private' => 'required',
         ]);
 
         $black_list = ['крампус', 'политика', 'спиннер', 'санта клаус'];
@@ -49,6 +53,7 @@ class HomeController extends Controller
         $letter = new Letter;
         $letter->author_id = Auth::user()->id;
         $letter->body = $validatedData['body'];
+        $letter->is_private = $validatedData['is_private'];
         //$letter->slug = $this->generate_slug();
         $letter->save();
 
@@ -74,10 +79,12 @@ class HomeController extends Controller
 
         $validatedData = $request->validate([
             'body' => 'required|max:950',
+            'is_private' => 'required',
         ]);
 
         $letter = Letter::findOrFail($id);
         $letter->body = $validatedData['body'];
+        $letter->is_private = $validatedData['is_private'];
         $letter->save();
 
         return redirect()->route('letters.list');
@@ -86,7 +93,7 @@ class HomeController extends Controller
     public function letter_response( $id ){
         $letter = Letter::findOrFail( $id );
         $gifts_all = Gift::all();
-
+        
         if( Auth::user()->role == 'admin' ){
             return view('letter_response', ['letter' => $letter, 'gifts_all' => $gifts_all ]);
         } else {

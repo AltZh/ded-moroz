@@ -13,10 +13,12 @@
                 <div class='py-2'><img src='{{ $gift->img_url }}' class='w-10/12'/></div>
                 <div class='pt-2'>{{ $gift->title }}</div>
                 <div class='pb-2 text-sm'>{{ $gift->description }}</div>
-                @if( $gift->is_one == 1 )
-                    <div class='text-sm'>такой всего один</div>
-                @else
-                    <div class='text-sm'>{{ $gift->gifts_max_numb }}</div>
+                @if( $gift->is_one == 1 && $gift->letters()->count() < 1 )
+                    <div class='text-sm'>еще не подарен</div>
+                @elseif( $gift->is_one == 1 && $gift->letters()->count() > 0 )
+                    <div class='text-sm'>уже подарено</div>    
+                @elseif( $gift->is_one == 0 && $gift->letters()->count() < $gift->gifts_max_numb  )
+                    <div class='text-sm'>осталось: {{ $gift->gifts_max_numb - $gift->letters()->count() }}</div>
                 @endif
             </div>
         @endforeach
