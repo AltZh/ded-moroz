@@ -6,7 +6,7 @@
     <div class='flex flex-row justify-center'>
         <div class='flex flex-col w-1/2'>
 
-            <h1 class='text-3xl py-4'>Авторизация</h1>
+            <h1 class='text-3xl py-4 font-pacifico'>Авторизация</h1>
             
             @if( $errors->any() )
                 <div>
@@ -33,7 +33,7 @@
         </div>
         <div class='flex flex-col w-1/2'>
 
-            <h1 class='text-3xl py-4'>Регистрация</h1>
+            <h1 class='text-3xl py-4 font-pacifico'>Регистрация</h1>
             
             @if( $errors->any() )
                 <div>

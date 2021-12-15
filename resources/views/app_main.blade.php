@@ -8,6 +8,10 @@
 
     <link href="{{ URL::asset('_css/tailwind.css'); }}" rel="stylesheet"/>
      
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
     <style>
         .snow-bg{
             background-image: url("https://img.icons8.com/external-vitaliy-gorbachev-fill-vitaly-gorbachev/60/000000/external-snowflake-winter-vitaliy-gorbachev-fill-vitaly-gorbachev.png");
@@ -20,9 +24,16 @@
             background-image: url(https://thumbs.dreamstime.com/z/%D0%B7%D0%B8%D0%BC%D0%B0-%D0%B1%D0%B5%D0%B7%D0%BC%D0%BE%D0%BB%D0%B2%D0%BD%D1%8B%D0%B9-%D1%84%D0%BE%D0%BD-%D0%BD%D0%BE%D0%B2%D0%BE%D0%B3%D0%BE%D0%B4%D0%BD%D1%8F%D1%8F-%D0%B8-%D1%80%D0%BE%D0%B6%D0%B4%D0%B5%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D1%81%D0%BA%D0%B0%D1%8F-%D0%BE%D0%B1%D0%B5%D1%80%D1%82%D0%BA%D0%B0-%D1%81-%D1%81%D0%B8%D0%BC%D0%B2%D0%BE%D0%BB%D0%B0%D0%BC%D0%B8-165198273.jpg);
             background-size: 140px;
         }
+        footer{
+            background-image: url(https://thumbs.dreamstime.com/z/%D0%B7%D0%B8%D0%BC%D0%B0-%D0%B1%D0%B5%D0%B7%D0%BC%D0%BE%D0%BB%D0%B2%D0%BD%D1%8B%D0%B9-%D1%84%D0%BE%D0%BD-%D0%BD%D0%BE%D0%B2%D0%BE%D0%B3%D0%BE%D0%B4%D0%BD%D1%8F%D1%8F-%D0%B8-%D1%80%D0%BE%D0%B6%D0%B4%D0%B5%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D1%81%D0%BA%D0%B0%D1%8F-%D0%BE%D0%B1%D0%B5%D1%80%D1%82%D0%BA%D0%B0-%D1%81-%D1%81%D0%B8%D0%BC%D0%B2%D0%BE%D0%BB%D0%B0%D0%BC%D0%B8-165198273.jpg);
+            background-size: 140px;
+        }
+        .font-pacifico{
+            font-family: 'Pacifico', cursive;
+        }
     </style>
 </head>
-<body>
+<body class='min-h-screen flex flex-col justify-between'>
     <header class='flex w-full justify-center bg-gray-100'>
         <div class='flex flex-row w-9/12 justify-center items-center'>
             <div class='p-4 w-1/5'>
@@ -63,14 +74,14 @@
             </div>
         </div>
     </header>
-    <div class='flex flex-row w-full justify-center'>
-        <div class='flex w-9/12 justify-center'>
-            <div class='w-full'>
+    <div class='flex flex-row h-full w-full justify-center' style='background-image: url(https://cdn.wallpapersafari.com/49/99/n2vC5w.jpg); background-size: 100%'>
+        <div class='flex w-9/12 h-full  justify-center'>
+            <div class='w-full min-h-screen '>
                 @yield('main_content')
             </div>
         </div>
     </div>
-    <footer class='flex w-full justify-center bg-gray-200 mt-20'>
+    <footer class='flex w-full justify-center bg-gray-200'>
         <div class='flex flex-row w-9/12 justify-center items-center py-12 text-gray-400'>
             by Altynbek 2021-2022
         </div>

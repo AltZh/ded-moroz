@@ -19,17 +19,17 @@
         <span>Просмотр письма</span>
     </div>
 
-    <div class='text-3xl py-4'>Просмотр письма</div>
+    <div class='text-3xl py-4 font-pacifico'>Просмотр письма</div>
     <div>Автор: {{ $letter->author->name }}</div>
     <div>{{ $letter->body }}</div>
     
     @if( $letter->response != null )
-        <div class='text-3xl py-4'>Ответ от Дедушки</div>
+        <div class='text-3xl py-4 font-pacifico'>Ответ от Дедушки</div>
         <div>{{ $letter->response }}</div>
     @endif
 
     @if($letter->gifts()->count() > 0)
-        <div class='text-3xl py-4'>Подарки от Дедушки</div>
+        <div class='text-3xl py-4 font-pacifico'>Подарки от Дедушки</div>
         <div class='flex flex-row w-full'>
             @foreach($letter->gifts as $gift)
                 <div class='w-1/5 p-2'>

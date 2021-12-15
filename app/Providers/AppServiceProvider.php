@@ -26,6 +26,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         $letters_numb = Letter::all()->count();
-        View::share('letters_numb', $letters_numb);
+        View::share('letters_numb', sprintf("%'.03d\n", $letters_numb));
     }
 }

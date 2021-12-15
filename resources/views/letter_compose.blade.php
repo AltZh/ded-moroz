@@ -20,21 +20,21 @@
         </div>
     @endif
     
-    <div class='text-3xl py-4'>Напишите Дедушке Морозу свое письмо</div>
+    <div class='text-3xl py-4 font-pacifico'>Напишите Дедушке Морозу свое письмо</div>
 
     <form method=post class='w-1/2' action="{{ route('letter.send')}}">
         @csrf
         <div>
             <textarea name='body' class='w-full h-60 border-2 rounded-md border-blue-400 py-2 px-4' placeholder='Что же вы хотите сказать Дедушке Морозу?'>{{ old('body') }}</textarea>
         </div>
-        <div>
+        <div class='py-4'>
             <select name='is_private' class='py-2 px-4 border-2 border-blue-400 rounded-md'>
                 <option value='1' selected>Лично Дедушке</option>
                 <option value='0'>Публично, будет видно всем</option>
             </select>
         </div>
-        <div>
-            <input class='bg-blue-400 text-white py-2 px-6 rounded-md shadow-md' type='submit' name='send_letter' value='Отправить письмо'/>
+        <div class='py-4'>
+            <input class='bg-blue-400 text-white py-2 px-6 rounded-md shadow-md cursor-pointer hover:bg-blue-700' type='submit' name='send_letter' value='Отправить письмо'/>
         </div>
     </form>
 @endsection
